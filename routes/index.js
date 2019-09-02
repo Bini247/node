@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+let express      = require('express');
+let router       = express.Router();
+let postsService = require('../services/postService');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  let dados = {
+    title: 'putz',
+    aluno: 'Bini'
+  };
+
+  let posts = postsService.getPosts();
+
+  res.render('index', {dados, posts:posts});
 });
 
 module.exports = router;
